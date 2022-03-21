@@ -1,0 +1,248 @@
+<html lang="en" class="theme_switchable"><head>
+
+  <meta charset="UTF-8">
+  
+
+  <title>Pandora box of a traveller</title>
+
+  
+<style>
+@import url(https://pro.fontawesome.com/releases/v5.11.2/css/all.css);
+
+
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  transition: 0.25s;
+}
+
+body .credit {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: inherit;
+}
+body .options {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: hidden;
+  min-width: 600px;
+  max-width: 900px;
+  width: calc(100% - 100px);
+  height: 400px;
+}
+
+body .options .option {
+  position: relative;
+  overflow: hidden;
+  min-width: 60px;
+  margin: 10px;
+  background: var(--optionBackground, var(--defaultBackground, #E6E9ED));
+  background-size: auto 120%;
+  background-position: center;
+  cursor: pointer;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+body .options .option:nth-child(1) {
+  --defaultBackground:#ED5565;
+}
+body .options .option:nth-child(2) {
+  --defaultBackground:#FC6E51;
+}
+body .options .option:nth-child(3) {
+  --defaultBackground:#FFCE54;
+}
+body .options .option:nth-child(4) {
+  --defaultBackground:#2ECC71;
+}
+body .options .option:nth-child(5) {
+  --defaultBackground:#5D9CEC;
+}
+body .options .option:nth-child(6) {
+  --defaultBackground:#AC92EC;
+}
+body .options .option.active {
+  flex-grow: 10000;
+  transform: scale(1);
+  max-width: 600px;
+  margin: 0px;
+  border-radius: 40px;
+  background-size: auto 100%;
+  /*&:active {
+     transform:scale(0.9);
+  }*/
+}
+body .options .option.active .shadow {
+  box-shadow: inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
+}
+body .options .option.active .label {
+  bottom: 20px;
+  left: 20px;
+}
+body .options .option.active .label .info > div {
+  left: 0px;
+  opacity: 1;
+}
+body .options .option:not(.active) {
+  flex-grow: 1;
+  border-radius: 30px;
+}
+body .options .option:not(.active) .shadow {
+  bottom: -40px;
+  box-shadow: inset 0 -120px 0px -120px black, inset 0 -120px 0px -100px black;
+}
+body .options .option:not(.active) .label {
+  bottom: 10px;
+  left: 10px;
+}
+body .options .option:not(.active) .label .info > div {
+  left: 20px;
+  opacity: 0;
+}
+body .options .option .shadow {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 120px;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+body .options .option .label {
+  display: flex;
+  position: absolute;
+  right: 0px;
+  height: 40px;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+body .options .option .label .icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  max-width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: white;
+  color: var(--defaultBackground);
+}
+body .options .option .label .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  color: white;
+  white-space: pre;
+}
+body .options .option .label .info > div {
+  position: relative;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity 0.5s ease-out;
+}
+body .options .option .label .info .main {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+body .options .option .label .info .sub {
+  transition-delay: 0.1s;
+
+}
+</style>
+
+
+
+</head>
+
+<body translate="no" class="light">
+  <div class="options" style="--optionBackground:url(https://lh3.googleusercontent.com/pUNoWzMAywXltYX0FHMtVAHhZCdRzFI_1B0KZ-MQkCcX_RRSkWJqR3PZ7Fznx1elfBO7S_dsGIoVZBtk4sC24udrMbl1TXhd8eIlsencpEku8Y8y8L7tnmGQGw6FBrOzySyoaQLsBGQnSl7QiOBWvFSQunATkLrkwvNAvunandhQWZMeCb7CrdaA0DUt5e2VKcGJjDSJmcwaVI3tqMu2HKDvS_HTb5GMPgQlJMoG1NDnsAIvnkpV8JFEn1pTdxeHcZ0iETs3UjxgPq7AY3JbDqQBL3iXx2Vsat1PNfmw2LcQkuyE5TBtBLnrzmAPaZhpfOP6t8_b61bW25177YOw0DNZqrTY7cCsaAY3hEhQRB4PBLOIPgXimYw8JLcJVPDsZjp7M7ZTHoJShMkK7kimcrxvgKn7Fr3AiTQ4reTLenjmptPz1a9ZUYjQZKLjmauqUdKoadPJYvhX_FCfP5uy5fhWeTzSFmxxX4Z5fkXwMuahBjslVyhkRAxJzNg7vmcBEtaSBDOffYhFJ0rnWOCe4hMmhNayuT0Vrj6a1Fk6ds87TSczyplZqBPN4VBgLqfEqcijHyhyud8BXBQszLZxbhQ11loX7b8l6IWuBUZIzDTtFUFJCaAqhiLSsFjvbKCtHPy4_xu4k1LXKacLQOEzZbP8UVUjispmbUT3I7lhS3bh60GJY0-ktrMCcb3Ij0FkJXRClzAElNHiwPlKLQSHNlDU8UbNtMwqvrnUZh87JIzYPLjQ4fep5jEYrfJIhBjZ14AG8jOQmtCGPi3qrcFhb_RPkIe8eTE6QOY=w1052-h789-no?authuser=1)">
+   <div class="option active">
+      <div class="shadow"></div>
+      <div class="label">
+         <div class="icon">
+            <i class="fas fa-snowflake"></i>
+         </div>
+         <div class="info">
+            <div class="main">Crépuscule</div>
+            <div class="sub">"Le doute est le crépuscule de l'esprit..."</div>
+         </div>
+      </div>
+   </div>
+   <div class="option" style="--optionBackground:url(https://lh3.googleusercontent.com/UonikwWdcVQQ7RUrSmmopg_cV2AuY_SSgVTBobXHx7hBWaGtVc-xVhjxCK84fsWvzVmi-lPBeZK59oR7Y0nNPqih6_zRaH6Uvj_P_F6lUVhxhDSxjM9ysH2TnzSPrWntr2Cm7HlkfIV0sAzZrXMVtt7uIaRyMcCPys5TIZUZoiz-x83-2oE1m57NPY-uYpxXSBRqfhIfvIVscyGrVzF9p9wLXNZpPPJ4yP7tw-WPlQhgN7UfCktN7XjaZzRYTu9MLPPF-ExVH0kcnxgq_jLnDLA9SZEg8w5ICnv42CUkHZgBpKoYaKAI_jd4O33iiVEe__VKXI4rjFlngXhJQ-9CNmJ81aV0UDpqD6DiDX3qqAjxYDb5QyPYbdfheZBFQJY2XSBKEHgdD7ipe_oFC0PUd5W18QHDES5vlxYh-Et5X6lnu4sJIpofKh-pF73xTkV7pVAfABPTjr54fMZJI7jH8W3VQPTAcu4yByOI8BLvhzc98vnzTPpzUDyD9o0-A454UQ9EmumMTZX1qmRuJ183X2b6brIdb_ogn59fkvXrg2qN1u_UpU6lVWGlqTnUTxRWDIzzf9_fjLYD8OqAnrB9Iz_iExZFbmYiUPshWNmvdo1t0Y6V38Qvq-iTiVcuxAyW0jMGCrhMwmZ5u47KxVGjQ2HEuPisrY_g4CQaGI2NQnClqj2OfGooAytMOhv6lQZ7Z8ACKZesT1Ta0gObnfk2_phfXjqJ-NuDWNYAkYvuDy5cRYYzYL2IgPfzPrRiQxdU49ou0QeWXf9dzQUlKVbUHay3CKQq3gyVfqs=w592-h789-no?authuser=1);">
+      <div class="shadow"></div>
+      <div class="label">
+         <div class="icon">
+            <i class="fas fa-walking"></i>
+         </div>
+         <div class="info">
+            <div class="main">Simplement Beau</div>
+            <div class="sub">"La beauté est dans les yeux de celui qui regarde."</div>
+         </div>
+      </div>
+   </div>
+   <div class="option" style="--optionBackground:url(https://lh3.googleusercontent.com/gigJWj2zRGjHZZ0Dp-tadeQg39_HM8CIbpNtk4qPQ1qwuZZ-qiz1r3xaGgXAgDXugcR0TFPQicOKFDiIOGzfxe7x-IcLY5iLOTZQPhM_uhugwNvct04rm0TPngLged5sUJGJdW91SoUgOzNaOEcwePE3cdNHdtMaKf20_raGYYLN9Yjt59xNGTQdIb68Yyag8LpGodUiIu5CGR6A_lmwEeLg_qdAMCXFpxbclxTtJKDbgDwsdrytVmbvPQdd_7pc5QKHEclrZ03QuuU_tcRQQV4peSJhqNmBna9AIfkgkkcHzJrfZBFfIGY2Yd-vODK9VqTbkA-0Ypgxr2b558L3rucvZJlhCKQ3PuW4VI3lis1cLWwB5KFE6nClnHv3LBMU4vBiW-7uQN1C2fL3najNngWeH3xmicLs6bfnyU-_NCBq9fbIWwve7tOyGQomtmTGJ_U82c8qvCuSYaGbvxZZhCmuKcI06h5k5_lh6LUDq57-1HhFi_55I13hubcuSfqUyL1rQ900db5CV40J2TJusfzZN-UdOsnGAT3J9rUoxxCKr02B0YxtGWyiBiPxgp8ckb6owVsZudbotKayUdNCl3QNHaQT-i26tz_ll6AJA1fqgKfFZuAqkLxHGAp9adIXV8xsMt1VcMPpP84bxTMRITBlydONfgvFV9kPE_Io6RcSkrn2mKe6tMRaROqYCh3-H6xy2MFiC-AefM8WWG4mljpTAA9QlcHIMSohS2lm5dlZjshritU8rNYU8Uibgfw_i93Uht3rhbiSv3pCrkr1T4sn4YULOQlvEUE=w592-h789-no?authuser=1);">
+      <div class="shadow"></div>
+      <div class="label">
+         <div class="icon">
+            <i class="fas fa-tree"></i>
+         </div>
+         <div class="info">
+            <div class="main">Lumière</div>
+            <div class="sub">Tu brilles splendidement ds mes ténèbres, quoique je souffle des vents</div>
+         </div>
+      </div>
+   </div>
+   <div class="option" style="--optionBackground:url(https://lh3.googleusercontent.com/75Tw-JuXE3RWly9tSxSI9QnihBDtscK_mF9vjjmAVerf7T1jLz9nbi3tDFl0IvG1gX_7kvxO3c-lQ95YL2U_LC6o7sCWxr-YERruTiLSLDR6UVHLYr-tWI6YZwtfeq23NWfFRqSPzxImyBV6OI1sXTFn4vwDT1oe2dZhvPIHI9DwXq7QpABzLFkSApJtd04Gv1TIXLzjXYkocFRMsNFVMFcmqVEjzsOznj_ewp3PCrifWjb4c4rvZ-hQByJon3YqbIiH39jUA0Nwewkzt7L9FmPvRjFxCOJT3Qf9mnX4NRohuiFnzyxcqEe9jFwbJ1ep_8_bxWnY3SWT8CBXrXD8OGyRTo_RTaelYDzlMyLVudkk4aTnjOkjhV2sQzd5ctDCCJ0ibJxISu-w3FuJdos_j0CGKHbEpBHNS-RGV4aT1684mPe2rDwOncDwG0UeeUV6omVPrMLubo6hbruqSTutEDce179B8OYPtgUHGz4TTlLvBWIlxvcoxlzKkXpNce1BO5ZunLSc66HvXlrPf5JLJiFhl6hSB2qXfdwVZwXFE97Pb3RPWG2xebYGop7HibVgNM3_lTvF6aBg8OsvI3O02wEPRIyA1wY3s0ecRPL1x-gdptzHWxpK4vDQrBxLstXNbckpegUcAlZ1ryDuE_E97LLuL0YzsL2wzjY6zwyBDMiBThg1o8cGxfmbD87qlNJWyikpqJH7qQSiQv9g3nRUP3_BnO1Jw4m_cfvwHSv8QFjzL4bgROg0Mh-fktUBr37adPozldv4gL7Dfst1kknSGuveViVh8EidINM=w592-h789-no?authuser=1);">
+      <div class="shadow"></div>
+      <div class="label">
+         <div class="icon">
+            <i class="fas fa-tint"></i>
+         </div>
+         <div class="info">
+            <div class="main">Reflet</div>
+            <div class="sub">"La vie n'est que le reflet des couleurs et des pensées qu'on lui donne"</div>
+         </div>
+      </div>
+   </div>
+   <div class="option" style="--optionBackground:url(https://lh3.googleusercontent.com/uJUtCf0k_K2ieE9ijzSi34H6qLKiyxekeURHfI0Xek91nbm3FaCJPDFDEPZbEKPYKaXrb0Fos1hPQ0GKSQDbKmF_9Uzir7f47SBPXD8qr0BonVwDxkVbhsA2SaiegrqwGsT4gEyNzqNihDN9LsJ7dMvCDSf0aLA5fS3qxDIOTDWLhI5UNPrlha72q6SMm-Yh8QFAP24XbGQjgVAAeaitwKyBOgaTWPjCWzcg9qIc8-Vg_bCCPuOYrNaOMCoTxlyhkeXCDeX1kIzNp1RN49to0fMfScj-M0nxDt1yPAjmawuahXYxf2013aKQYBEVqS-z5-sn68NyH2kNKGJQ2vw-nsMzquLSOlQs_2zIijaAWnSRJkuc2cpF2TXLYQn1lcwax_z8VXA1T0I3d70Lmdc5vz0i_gxE4MFZuUBqq05vNnBcjAt5vMmeds9D3WX63ErCPKc7-G_KddeRJgnSZ0ispF0oGR33OuxfGXy_-nXqta0_SJKoqaJT14ncRzFhzgyvTmlJ_2jiL9fDjHyUkP-xzWg2RFi2LPrRbBU1hv6SPBqZ6jGmKJT26IeZk4YNIWv1MewHcV3QuJOzdg-K4ePlnfxO5kC1sYU4RpZbhNjJxqGMqIKz5fw2tU7GC8m-jiTfyD78RJ0YfR_AEoIKKl6L6ry4GPBUvNuuc4iPcYVZGdSA0DJyP56-Yvxiax0T6Bu6SFk8h6maIzy5nkEYvr3MuOfxjXMihGGEkBcR__82yDmBTBrIzRZykfwiwMTsnbEvhC7uNLsoSWD8PIqRPrjpsGph1K2Q-_bYQQc=w444-h789-no?authuser=1);">
+      <div class="shadow"></div>
+      <div class="label">
+         <div class="icon">
+            <i class="fas fa-sun"></i>
+         </div>
+         <div class="info">
+            <div class="main">Sun</div>
+            <div class="sub">some thirst is a bless when u are the sun making me hot</div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<img style="width: 3.5%; border-radius: 30px;" class="credit" src="imagesOfATraveler/Rim.gif">
+   
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+<script id="rendered-js">
+$(".option").click(function () {
+  $(".option").removeClass("active");
+  $(this).addClass("active");
+
+});
+
+</script>
+
+  
+
+
+
+
+ 
+</body></html>
